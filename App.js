@@ -23,12 +23,12 @@ export default function App(props) {
   } else {
     return (
       <PaperProvider>
-        {/* <View style={styles.container}>
+        <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <AppNavigator />
-        </View> */}
+        </View>
 
-        <Login />
+        {/* <Login /> */}
       </PaperProvider>
     );
   }
