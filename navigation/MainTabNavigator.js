@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ServiceScreen from '../screens/ServiceScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -49,6 +50,26 @@ ServiceStack.navigationOptions = {
 
 ServiceStack.path = '';
 
+
+//History Tab
+const HistoryStack = createStackNavigator(
+  {
+    History: HistoryScreen,
+  },
+  config
+);
+
+HistoryStack.navigationOptions = {
+  tabBarLabel: 'History',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon fontName='fontAwesome' focused={focused} name={Platform.OS === 'ios' ? 'history' : 'history'} />
+  ),
+};
+
+HistoryStack.path = '';
+
+
+//More Tab
 const SettingsStack = createStackNavigator(
   {
     Settings: SettingsScreen,
@@ -65,9 +86,12 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+
+//create Tab
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ServiceStack,
+  HistoryStack,
   SettingsStack,
 });
 
