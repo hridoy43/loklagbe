@@ -8,16 +8,25 @@ class LoginScreen extends React.Component {
         password: '',
     }
 
+    onLogin = () => {
+        this.props.navigation.navigate('Main')
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
                 <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
-                <Button mode='contained' style={styles.btn}>Login</Button>
+                {console.log(this.props.navigation.navigate)}
+                <Button mode='contained' style={styles.btn} onPress={this.onLogin}>Login</Button>
             </View>
         );
     }
 }
+
+LoginScreen.navigationOptions = {
+    header: null,
+};
 
 export default LoginScreen;
 

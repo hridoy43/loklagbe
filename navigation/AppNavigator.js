@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native'
 import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
@@ -16,20 +17,29 @@ const LoginStack = createStackNavigator(
   config
 )
 
+LoginStack.path = ''
+
+
+
 const SwitchNavigator = createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
   Main: MainTabNavigator,
-})
-
-const mainStack = createStackNavigator(
+  LoginScrn: LoginStack,
+},
   {
-    Login: LoginStack,
-    Main: MainTabNavigator,
-  },
-  {
-    initialRouteName: 'Login',
-  }
-)
+    initialRouteName: 'LoginScrn',
+  })
+SwitchNavigator.path = ''
 
-export default createAppContainer(mainStack);
+// const mainStack = createStackNavigator(
+//   {
+//     Main: MainTabNavigator,
+//     LoginScrn: LoginStack,
+//   },
+//   {
+//     initialRouteName: 'LoginScrn',
+//   }
+// )
+
+export default createAppContainer(SwitchNavigator);

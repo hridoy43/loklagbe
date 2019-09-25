@@ -10,9 +10,11 @@ import {
   View,
 } from 'react-native';
 
+import { Button } from 'react-native-paper'
+
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -37,6 +39,7 @@ export default function HomeScreen() {
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
             <MonoText>screens/HomeScreen.js</MonoText>
+            <MonoText>{console.log('props', props.navigation)}</MonoText>
           </View>
 
           <Text style={styles.getStartedText}>
@@ -53,10 +56,13 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
+
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
           This is a tab bar. You can edit it in:
         </Text>
+
+        <Button mode='contained' onPress={e => onBtnPress(props)}>Back Button</Button>
 
         <View
           style={[styles.codeHighlightContainer, styles.navigationFilename]}>
@@ -72,6 +78,11 @@ export default function HomeScreen() {
 HomeScreen.navigationOptions = {
   header: null,
 };
+
+function onBtnPress(props) {
+  console.log(props.navigation.actions.navigate('Login'))
+  props.navigation.navigate('Login')
+}
 
 function DevelopmentModeNotice() {
   if (__DEV__) {

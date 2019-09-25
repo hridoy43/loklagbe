@@ -1,13 +1,47 @@
+import { Platform } from 'react-native'
 import { createBrowserApp } from '@react-navigation/web';
-import { createSwitchNavigator } from 'react-navigation';
+import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import LoginScreen from '../screens/LoginScreen';
 
-const switchNavigator = createSwitchNavigator({
+const config = Platform.select({
+  web: { headerMode: 'screen' },
+  default: {},
+});
+
+const LoginStack = createStackNavigator(
+  {
+    Login: LoginScreen,
+  },
+  config
+)
+LoginStack.path = '';
+
+const SwitchNavigator = createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+  LoginScrn: LoginStack,
   Main: MainTabNavigator,
-});
-switchNavigator.path = '';
+},
+  {
+    initialRouteName: 'LoginScrn',
+  })
+SwitchNavigator.path = '';
 
-export default createBrowserApp(switchNavigator, { history: 'hash' });
+
+
+// const mainStack = createStackNavigator(
+//   {
+//     Main: SwitchNavigator,
+//     LoginScrn: LoginStack,
+//   },
+//   {
+//     initialRouteName: 'LoginScrn',
+//   }
+// )
+// mainStack.path = '';
+
+
+
+export default createBrowserApp(SwitchNavigator, { history: 'hash' });
