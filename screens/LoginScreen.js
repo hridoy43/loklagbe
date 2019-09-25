@@ -2,7 +2,7 @@ import * as React from 'react';
 import { TextInput, Button } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
 
-class Login extends React.Component {
+class LoginScreen extends React.Component {
     state = {
         userName: '',
         password: '',
@@ -19,7 +19,7 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
