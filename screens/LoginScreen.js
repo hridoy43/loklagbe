@@ -18,7 +18,7 @@ class LoginScreen extends React.Component {
                 <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
                 <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
                 {console.log(this.props.navigation.navigate)}
-                <Button mode='contained' style={styles.btn} onPress={this.onLogin}>Login</Button>
+                <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
             </View>
         );
     }
@@ -47,9 +47,11 @@ const styles = StyleSheet.create({
     btn: {
         marginTop: 10,
         fontSize: 50,
-        height: 60,
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 25
+    },
+    btnProp: {
+        height: 60,
     }
 });
