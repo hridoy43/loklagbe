@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     btn: {
         marginTop: 15,
         fontSize: 50,
-        fontWeight: 700,
+        fontWeight: "700",
         justifyContent: 'center',
         borderWidth: 1,
         borderRadius: 25
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     linkText: {
         fontSize: 18,
-        fontWeight: 500,
+        fontWeight: "500",
         color: '#2e78b7',
         textAlign: 'right',
         opacity: 0.9

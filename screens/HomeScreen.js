@@ -10,25 +10,26 @@ import {
   View,
 } from 'react-native';
 
-import { Button } from 'react-native-paper'
+import { Button, Divider } from 'react-native-paper'
+import HomeScreenHeader from '../components/homeTab/HomeScreenHeader';
+
+
 
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
+      <HomeScreenHeader />
+      <Divider style={{ height: 10 }} />
+      <View>
+
+      </View>
+      <Divider style={{ height: 10 }} />
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
         </View>
 
         <View style={styles.getStartedContainer}>
