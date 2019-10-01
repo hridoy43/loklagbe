@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         flex: 1,
         flexDirection: 'column',
-        opacity: 0.9
+        color: '#333333'
 
     },
     mainHeaderText: {
