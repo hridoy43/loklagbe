@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { Text, } from 'react-native-paper'
+import SvgUri from 'expo-svg-uri'
 
 const ServiceSecondHeader = () => {
     return (
@@ -12,7 +13,7 @@ const ServiceSecondHeader = () => {
                 </Text>
             </View>
             <View style={styles.imageContainer}>
-                <Image source={require(assets /)} />
+                <SvgUri width="100" height="100" source={require('../../assets/images/servicePage_greeting.svg')} />
             </View>
         </View>
     )
