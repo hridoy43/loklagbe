@@ -16,6 +16,7 @@ import HomeScreenHeader from '../components/homeTab/HomeScreenHeader';
 
 
 import { MonoText } from '../components/StyledText';
+import CallCard from '../components/homeTab/CallCard';
 
 export default function HomeScreen(props) {
   return (
@@ -26,6 +27,10 @@ export default function HomeScreen(props) {
 
       </View>
       <Divider style={{ height: 10 }} />
+      <CallCard />
+      <Divider style={{ height: 10 }} />
+
+
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -35,7 +40,7 @@ export default function HomeScreen(props) {
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Hello! Hridoy</Text>
+          {/* <Text style={styles.getStartedText}>Hello! Hridoy </Text>
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
@@ -45,16 +50,16 @@ export default function HomeScreen(props) {
 
           <Text style={styles.getStartedText}>
             Change this text and your app will automatically reload.
-          </Text>
+          </Text> */}
         </View>
 
-        <View style={styles.helpContainer}>
+        {/* <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>
               Help, it didn’t automatically reload!
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </ScrollView>
 
 
