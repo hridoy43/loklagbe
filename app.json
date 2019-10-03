@@ -4,6 +4,9 @@
     "slug": "LokLagbe",
     "privacy": "public",
     "sdkVersion": "35.0.0",
+    "android": {
+      "package": "com.loklagbe.loklagbe"
+    },
     "platforms": [
       "ios",
       "android",
@@ -26,5 +29,8 @@
     "ios": {
       "supportsTablet": true
     }
+  },
+  "packagerOpts": {
+    "config": "metro.config.js"
   }
 }

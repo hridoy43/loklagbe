@@ -30,7 +30,7 @@
     "react-native-svg": "^9.10.2",
     "react-native-web": "^0.11.7",
     "react-navigation": "^3.12.0",
-    "xmldom": "^0.1.27"
+    "webpack": "^4.41.0"
   },
   "devDependencies": {
     "@expo/webpack-config": "^0.7.5",
