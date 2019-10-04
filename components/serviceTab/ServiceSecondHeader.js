@@ -7,7 +7,7 @@ import ServicePageGreetingIcon from '../../assets/images/ServicePageGreetingIcon
 const ServiceSecondHeader = () => {
     return (
         <View style={styles.container}>
-
+            
             <View style={styles.nameContainer}>
                 <Text style={styles.greetingText}>
                     Hello! Mr. Hridoy {"\n"}
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
         textShadowOffset: { width: -1, height: 2 },
         textShadowRadius: 10,
         fontWeight: "500",
-        lineHeight: 30
+        lineHeight: 30,
+        //letterSpacing: 1
 
     },
     imageContainer: {

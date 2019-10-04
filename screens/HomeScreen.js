@@ -22,11 +22,11 @@ export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <HomeScreenHeader />
-      <Divider style={{ height: 10 }} />
+      <Divider style={{ height: 16 }} />
       <View>
 
       </View>
-      <Divider style={{ height: 10 }} />
+
       <CallCard />
       <Divider style={{ height: 10 }} />
 
