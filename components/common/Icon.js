@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ionicons, FontAwesome, EvilIcons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome, EvilIcons, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Colors from '../../constants/Colors';
 
@@ -26,6 +26,15 @@ export default function Icon(props) {
 
         props.fontName === 'materialIcons' &&
         <MaterialIcons
+            name={props.name}
+            size={props.size || 26}
+            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+        />
+
+        ||
+
+        props.fontName === 'materialCommunityIcons' &&
+        <MaterialCommunityIcons
             name={props.name}
             size={props.size || 26}
             color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}

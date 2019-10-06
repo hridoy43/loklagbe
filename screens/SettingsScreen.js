@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Divider, Avatar, Text } from 'react-native-paper';
 import Icon from '../components/common/Icon';
 import { ExpoConfigView } from '@expo/samples';
@@ -8,78 +8,60 @@ export default class SettingsScreen extends React.Component {
   state = {
     profileOption: {
       account: [
-        { iconName: 'home', optionText: 'Profile' },
-        { iconName: 'home', optionText: 'Address' },
-        { iconName: 'home', optionText: 'Payment Methods' },
+        { iconName: 'person-outline', fontName: 'materialIcons', optionText: 'Profile', route: '' },
+        { iconName: 'payment', fontName: 'materialIcons', optionText: 'Payment Methods', route: '' },
+        { iconName: 'home-outline', fontName: 'materialCommunityIcons', optionText: 'Address', route: '' },
       ],
       settings: [
-        { iconName: '', optionText: 'Change Password' },
-        { iconName: '', optionText: 'Language' },
-        { iconName: '', optionText: 'Permission' },
+        { iconName: 'key-variant', fontName: 'materialCommunityIcons', optionText: 'Change Password', route: '' },
+        { iconName: 'language', fontName: 'materialIcons', optionText: 'Language', route: '' },
+        { iconName: 'teach', fontName: 'materialCommunityIcons', optionText: 'Permission', route: '' },
       ],
       settings2: [
-        { iconName: '', optionText: 'Help' },
-        { iconName: '', optionText: 'Legal' },
+        { iconName: 'ios-help-buoy', fontName: '', optionText: 'Help', route: '' },
+        { iconName: 'account-balance', fontName: 'materialIcons', optionText: 'Legal', route: '' },
       ],
       logOut: [
-        { iconName: '', optionText: 'Log Out' }
+        { iconName: 'logout', fontName: 'materialCommunityIcons', optionText: 'Log Out', route: '' }
       ],
     }
   }
 
-  // settingViewLoader = () => {
-  //   console.log("TCL: SettingsScreen -> settingViewLoader -> state.profileOption", state.profileOption)
-  //   const view = <View>
-  //     {Object.keys(state.profileOption).map(ProfileOption => {
+  headerMenuLoader(headerMenu) {
+    if (headerMenu == 'account') return 'ACCOUNT'
+    else if (headerMenu == 'settings' || headerMenu == 'settings2') return 'SETTINGS'
+    else if (headerMenu == 'logOut') return 'LOG OUT'
+  }
 
-  //       {
-  //         <Divider /> &&
-  //           <View>
-  //             <Text>Account</Text>
-
-  //             {/* {
-  //               profileOption.map(item => {
-  //                 <View>
-  //                   <Icon name={item.iconName} />
-  //                   <Text>{item.optionText}</Text>
-  //                 </View>
-  //               })
-
-  //             } */}
-  //           </View>
-  //       }
-  //     })
-  //     }
-  //   </View>
-  //   return view
-  // }
+  settingViewLoader = () => {
+    return <View style={styles.moreContainer} >
+      {Object.keys(this.state.profileOption).map(headerMenu => {
+        return <View style={styles.optionComponent}>
+          <Text>{this.headerMenuLoader(headerMenu)}</Text>
+          {
+            this.state.profileOption[headerMenu].map((item, index) => {
+              return <TouchableOpacity>
+                <View style={styles.optionRow}>
+                  <Icon name={item.iconName} fontName={item.fontName} />
+                  <Text style={styles.optionText}>{item.optionText}</Text>
+                </View>
+                {this.state.profileOption[headerMenu].length - 1 != index ? <Divider /> : null}
+              </TouchableOpacity>
+            })
+          }
+          <Divider style={styles.dividerStyle} />
+        </View>
+      })
+      }
+    </View>
+  }
 
   //<ExpoConfigView />
   render() {
     return (
-      <View style={styles.moreContainer} >
-        {Object.keys(this.state.profileOption).map(headerMenu => {
-          console.log("TCL: render -> headerMenu", headerMenu)
-
-          return <Divider /> &&
-            <View>
-              <Text>{headerMenu}</Text>
-
-              {
-                this.state.profileOption[headerMenu].map(item => {
-                  return <View>
-                    <Icon name={item.iconName} />
-                    <Text>{item.optionText}</Text>
-                  </View>
-                })
-
-              }
-            </View>
-        })
-        }
-
-        <Text>Hell</Text>
-      </View>
+      <ScrollView>
+        {this.settingViewLoader()}
+      </ScrollView>
     )
 
   }
@@ -94,5 +76,21 @@ SettingsScreen.navigationOptions = {
 const styles = StyleSheet.create({
   moreContainer: {
 
+  },
+  optionComponent: {
+    padding: 10,
+  },
+  optionRow: {
+    flexDirection: 'row',
+    padding: 12,
+  },
+  optionText: {
+    marginTop: 8,
+    paddingLeft: 20
+  },
+  dividerStyle: {
+    height: 10,
+    marginLeft: -10,
+    marginRight: -10
   }
 })
