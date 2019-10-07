@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Divider, Card, Avatar, Text } from 'react-native-paper';
 
 import HistoryScreenHeader from '../components/historyTab/HistoryScreenHeader';
+import HistoryList from '../components/historyTab/HistoryList';
 import { ExpoLinksView } from '@expo/samples';
 
 
@@ -44,7 +45,7 @@ export default function HistoryScreen() {
 
 
             <ScrollView>
-                {getServiceHistoryList()}
+                <HistoryList />
             </ScrollView>
         </View>
     )
