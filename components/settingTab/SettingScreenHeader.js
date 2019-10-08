@@ -21,7 +21,7 @@ export default class SettingScreenHeader extends Component {
                     <Headline style={styles.headline}>{"Wahiduzzaman Hridoy"}</Headline>
                     <View style={styles.chipContainer}>
                         <Text style={styles.phnNumber}>{"01727665348"}</Text>
-                        <Chip textStyle={{ color: '#fff' }} style={styles.chipStyle}><Icon name="star" fontName="fontAwesome" color="#fff" size='16' style={styles.chipIcon} /> {"Silver User"}</Chip>
+                        <Chip textStyle={{ color: '#fff' }} style={styles.chipStyle}><Icon name="star" fontName="fontAwesome" color="#fff" size={16} style={styles.chipIcon} /> {"Silver User"}</Chip>
                     </View>
                 </View>
             </View >
