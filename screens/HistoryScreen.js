@@ -10,12 +10,6 @@ import { ExpoLinksView } from '@expo/samples';
 
 export default function HistoryScreen() {
 
-    const getServiceHistoryList = () => {
-        return <View>
-            <Text>Test Data</Text>
-        </View>
-    }
-
     return (
         <View style={styles.container}>
 
@@ -27,15 +21,15 @@ export default function HistoryScreen() {
                 <View style={styles.singleCardContainer}>
                     <TouchableOpacity>
                         <Card>
-                            <Card.Title title="CALL NANY" style={styles.cardTitle} />
+                            <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL NANY" style={styles.cardTitle} />
                         </Card>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.singleCardContainer}>
                     <TouchableOpacity>
-                        <Card>
-                            <Card.Title title="CALL DOCTOR" style={styles.cardTitle} />
+                        <Card style={styles.cardContent}>
+                            <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL DOCTOR" style={styles.cardTitle} />
                         </Card>
                     </TouchableOpacity>
                 </View>
@@ -73,7 +67,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         alignItems: 'stretch',
-        textAlign: 'center',
     },
     cardTitle: {
         alignSelf: 'center',

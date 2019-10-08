@@ -21,8 +21,8 @@ export default class HistoryList extends Component {
 
     generateHistoryView = (historyList) => {
         return <View>
-            {historyList.map(singleHistoryItem => {
-                return <View>
+            {historyList.map((singleHistoryItem, index) => {
+                return <View key={index}>
                     <View style={styles.listContainer}>
                         {/* header_Image */}
                         <View style={styles.headerAvatar}>

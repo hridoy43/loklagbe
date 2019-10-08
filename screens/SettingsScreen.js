@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Divider, Avatar, Text } from 'react-native-paper';
+import SettingScreenHeader from '../components/settingTab/SettingScreenHeader';
 import Icon from '../components/common/Icon';
 import { ExpoConfigView } from '@expo/samples';
 
@@ -35,12 +36,12 @@ export default class SettingsScreen extends React.Component {
 
   settingViewLoader = () => {
     return <View style={styles.moreContainer} >
-      {Object.keys(this.state.profileOption).map(headerMenu => {
-        return <View style={styles.optionComponent}>
-          <Text>{this.headerMenuLoader(headerMenu)}</Text>
+      {Object.keys(this.state.profileOption).map((headerMenu, index) => {
+        return <View style={styles.optionComponent} key={index}>
+          <Text style={styles.optionHeader}>{this.headerMenuLoader(headerMenu)}</Text>
           {
             this.state.profileOption[headerMenu].map((item, index) => {
-              return <TouchableOpacity>
+              return <TouchableOpacity key={index}>
                 <View style={styles.optionRow}>
                   <Icon name={item.iconName} fontName={item.fontName} />
                   <Text style={styles.optionText}>{item.optionText}</Text>
@@ -59,9 +60,13 @@ export default class SettingsScreen extends React.Component {
   //<ExpoConfigView />
   render() {
     return (
-      <ScrollView>
-        {this.settingViewLoader()}
-      </ScrollView>
+      <View>
+        <SettingScreenHeader />
+        <Divider style={{ height: 10 }} />
+        <ScrollView>
+          {this.settingViewLoader()}
+        </ScrollView>
+      </View>
     )
 
   }
@@ -76,6 +81,9 @@ SettingsScreen.navigationOptions = {
 const styles = StyleSheet.create({
   moreContainer: {
 
+  },
+  optionHeader: {
+    paddingLeft: 12
   },
   optionComponent: {
     padding: 10,

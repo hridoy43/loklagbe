@@ -10,7 +10,7 @@ export default function Icon(props) {
         <FontAwesome
             name={props.name}
             size={props.size || 26}
-            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={props.focused ? Colors.tabIconSelected : props.color || Colors.tabIconDefault}
         />
 
         ||
@@ -19,7 +19,7 @@ export default function Icon(props) {
         <EvilIcons
             name={props.name}
             size={props.size || 26}
-            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={props.focused ? Colors.tabIconSelected : props.color || Colors.tabIconDefault}
         />
 
         ||
@@ -28,7 +28,7 @@ export default function Icon(props) {
         <MaterialIcons
             name={props.name}
             size={props.size || 26}
-            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={props.focused ? Colors.tabIconSelected : props.color || Colors.tabIconDefault}
         />
 
         ||
@@ -37,7 +37,7 @@ export default function Icon(props) {
         <MaterialCommunityIcons
             name={props.name}
             size={props.size || 26}
-            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={props.focused ? Colors.tabIconSelected : props.color || Colors.tabIconDefault}
         />
 
         ||
@@ -46,7 +46,7 @@ export default function Icon(props) {
         <Ionicons
             name={props.name}
             size={props.size || 26}
-            color={props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={props.focused ? Colors.tabIconSelected : props.color || Colors.tabIconDefault}
         />
 
 
