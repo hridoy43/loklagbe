@@ -60,10 +60,11 @@ export default class SettingsScreen extends React.Component {
   //<ExpoConfigView />
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <SettingScreenHeader />
-        <Divider style={{ height: 10 }} />
+        <Divider style={{ height: 2 }} />
         <ScrollView>
+          <Divider style={{ height: 10 }} />
           {this.settingViewLoader()}
         </ScrollView>
       </View>
@@ -79,8 +80,10 @@ SettingsScreen.navigationOptions = {
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   moreContainer: {
-
   },
   optionHeader: {
     paddingLeft: 12

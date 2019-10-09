@@ -1,22 +1,15 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { Button, Divider } from 'react-native-paper'
+import { Button, Divider, Headline } from 'react-native-paper'
 import HomeScreenHeader from '../components/homeTab/HomeScreenHeader';
 
 
 
 import { MonoText } from '../components/StyledText';
 import CallCard from '../components/homeTab/CallCard';
+import HomeCarousel from '../components/homeTab/HomeCarousel';
 
 export default function HomeScreen(props) {
   return (
@@ -27,43 +20,24 @@ export default function HomeScreen(props) {
 
       </View>
 
-      <CallCard />
-      <Divider style={{ height: 10 }} />
 
 
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-        </View>
+      <ScrollView style={styles.container}>
+        <CallCard />
+        <Divider style={{ height: 12 }} />
 
-        <View style={styles.getStartedContainer}>
+        {/* <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
-
-          {/* <Text style={styles.getStartedText}>Hello! Hridoy </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-            <MonoText>{console.log('props', props.navigation)}</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text> */}
-        </View>
-
-        {/* <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
         </View> */}
+
+        <HomeCarousel />
+
+        <Divider style={{ height: 10 }} />
+
       </ScrollView>
 
 
-      <View style={styles.tabBarInfoContainer}>
+      {/* <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
           This is a tab bar. You can edit it in:
         </Text>
@@ -76,7 +50,7 @@ export default function HomeScreen(props) {
             navigation/MainTabNavigator.js
           </MonoText>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }

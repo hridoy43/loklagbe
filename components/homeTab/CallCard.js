@@ -1,31 +1,28 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Card, Avatar } from 'react-native-paper'
+import { Card, Avatar, Headline } from 'react-native-paper'
+import Icon from '../common/Icon';
 
 export default class CallCard extends Component {
     render() {
         return (
+
             <View style={styles.container}>
-                <View style={styles.cardContainer}>
-
-
+                <Headline style={styles.headlineText}>What can I help?</Headline>
+                <View style={styles.callContainer}>
                     <View style={styles.cardContainer}>
                         <TouchableOpacity>
-                            <Card>
-                                <Card.Title title="Call Nany" subtitle="Choose Package" left={(props) => <Avatar.Icon {...props} icon="folder" />} />
-                            </Card>
+                            <Card.Title title="Call Nany" subtitle="Choose Package" left={(props) => <Avatar.Image {...props} source={require('../../assets/images/nanny.png')} />} />
+                        </TouchableOpacity>
+
+                    </View>
+                    <View style={styles.borderView} />
+                    <View style={styles.cardContainer}>
+                        <TouchableOpacity>
+                            <Card.Title title="Call Doctor" subtitle="Choose Package" left={(props) => <Avatar.Image {...props} source={require('../../assets/images/doctor.png')} />} />
                         </TouchableOpacity>
                     </View>
                 </View>
-
-                <View style={styles.cardContainer}>
-                    <TouchableOpacity>
-                        <Card>
-                            <Card.Title title="Call Doctor" subtitle="Choose Package" left={(props) => <Avatar.Icon {...props} icon="folder" />} />
-                        </Card>
-                    </TouchableOpacity>
-                </View>
-
             </View>
         )
     }
@@ -34,10 +31,34 @@ export default class CallCard extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row'
+        paddingTop: 10,
+        paddingHorizontal: 15,
+
+    },
+    headlineText: {
+        fontWeight: "500"
+    },
+    callContainer: {
+        flexDirection: 'row',
+        marginVertical: 10,
+        marginBottom: 15,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        borderRadius: 15,
     },
     cardContainer: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginLeft: -5
+    },
+    borderView: {
+        flexDirection: 'column',
+        height: 50,
+        width: 1,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        alignSelf: 'center'
+
     }
+
 })
