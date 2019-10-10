@@ -18,11 +18,11 @@ class LoginScreen extends React.Component {
                 <Text style={styles.loginHeaderText}>Log In</Text>
                 <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
                 <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
-                <Text style={styles.linkText}>
-                    Forgot Password?
-                </Text>
+                <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
+                <Text style={styles.registrationText}>Don't You Have Any Account Yet?</Text>
+                <Text style={styles.linkRegistrationText}>Register Here</Text>
             </View>
         );
     }
@@ -70,6 +70,20 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: '#2e78b7',
         textAlign: 'right',
-        opacity: 0.9
+        opacity: 0.8
     },
+    registrationText: {
+        fontSize: 14,
+        fontWeight: "500",
+        color: '#7B8788',
+        textAlign: 'center',
+        padding: 10,
+        paddingTop: 30
+    },
+    linkRegistrationText: {
+        fontSize: 18,
+        fontWeight: "600",
+        color: '#2e78b7',
+        textAlign: 'center',
+    }
 });
