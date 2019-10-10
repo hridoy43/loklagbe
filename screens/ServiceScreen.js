@@ -4,6 +4,7 @@ import { Divider } from 'react-native-paper';
 //import { ExpoLinksView } from '@expo/samples';
 import ServiceSecondHeader from '../components/serviceTab/ServiceSecondHeader';
 import HomeScreenHeader from '../components/homeTab/HomeScreenHeader';
+import RemainingTimePage from '../components/serviceTab/RemainingTimePage';
 
 export default function ServiceScreen() {
   return (
@@ -20,6 +21,9 @@ export default function ServiceScreen() {
         <Divider style={{ height: 8, padding: 0, margin: 0 }} />
 
         {/* <ExpoLinksView /> */}
+
+        <RemainingTimePage />
+        <Divider style={{ height: 8, padding: 0, margin: 0 }} />
       </ScrollView>
     </View>
 
