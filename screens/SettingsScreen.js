@@ -23,9 +23,13 @@ export default class SettingsScreen extends React.Component {
         { iconName: 'account-balance', fontName: 'materialIcons', optionText: 'Legal', route: '' },
       ],
       logOut: [
-        { iconName: 'logout', fontName: 'materialCommunityIcons', optionText: 'Log Out', route: '' }
+        { iconName: 'logout', fontName: 'materialCommunityIcons', optionText: 'Log Out', route: 'Login' }
       ],
     }
+  }
+
+  onRoute = (e, routeName) => {
+    this.props.navigation.navigate(routeName)
   }
 
   headerMenuLoader(headerMenu) {
@@ -41,7 +45,7 @@ export default class SettingsScreen extends React.Component {
           <Text style={styles.optionHeader}>{this.headerMenuLoader(headerMenu)}</Text>
           {
             this.state.profileOption[headerMenu].map((item, index) => {
-              return <TouchableOpacity key={index}>
+              return <TouchableOpacity key={index} onPress={e => this.onRoute(e, item.route)}>
                 <View style={styles.optionRow}>
                   <Icon name={item.iconName} fontName={item.fontName} />
                   <Text style={styles.optionText}>{item.optionText}</Text>

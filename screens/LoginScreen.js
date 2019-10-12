@@ -24,7 +24,7 @@ class LoginScreen extends React.Component {
                 <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
-                <Text style={styles.registrationText}>Don't You Have Any Account Yet?</Text>
+                <Text style={styles.registrationText}>Don't you have any account yet?</Text>
                 <TouchableRipple>
                     <Text style={styles.linkRegistrationText} onPress={this.onRegister} >Register Here</Text>
                 </TouchableRipple>
