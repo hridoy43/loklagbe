@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextInput, Button, Text } from 'react-native-paper';
+import { TextInput, Button, Text, TouchableRipple } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
 
 class LoginScreen extends React.Component {
@@ -10,6 +10,9 @@ class LoginScreen extends React.Component {
 
     onLogin = () => {
         this.props.navigation.navigate('Main')
+    }
+    onRegister = () => {
+        this.props.navigation.navigate('Register')
     }
 
     render() {
@@ -22,7 +25,9 @@ class LoginScreen extends React.Component {
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
                 <Text style={styles.registrationText}>Don't You Have Any Account Yet?</Text>
-                <Text style={styles.linkRegistrationText}>Register Here</Text>
+                <TouchableRipple>
+                    <Text style={styles.linkRegistrationText} onPress={this.onRegister} >Register Here</Text>
+                </TouchableRipple>
             </View>
         );
     }

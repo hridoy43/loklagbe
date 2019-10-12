@@ -4,6 +4,7 @@ import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import LoginScreen from '../screens/LoginScreen';
+import Registration from '../components/login/Registration';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -13,6 +14,7 @@ const config = Platform.select({
 const LoginStack = createStackNavigator(
   {
     Login: LoginScreen,
+    Register: Registration
   },
   config
 )
