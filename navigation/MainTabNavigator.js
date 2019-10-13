@@ -8,6 +8,10 @@ import ServiceScreen from '../screens/ServiceScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 
+//sub-Activity
+import Profile from '../components/settingTab/Profile';
+
+
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
@@ -96,5 +100,15 @@ const tabNavigator = createBottomTabNavigator({
 });
 
 tabNavigator.path = '';
+tabNavigator.navigationOptions = {
+  header: null
+}
 
-export default tabNavigator;
+
+const tabStackNavigator = createStackNavigator({
+  tabNavigator,
+  Profile
+})
+tabStackNavigator.path = '';
+
+export default tabStackNavigator;

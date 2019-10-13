@@ -9,7 +9,7 @@ export default class SettingsScreen extends React.Component {
   state = {
     profileOption: {
       account: [
-        { iconName: 'person-outline', fontName: 'materialIcons', optionText: 'Profile', route: '' },
+        { iconName: 'person-outline', fontName: 'materialIcons', optionText: 'Profile', route: 'Profile' },
         { iconName: 'payment', fontName: 'materialIcons', optionText: 'Payment Methods', route: '' },
         { iconName: 'home-outline', fontName: 'materialCommunityIcons', optionText: 'Address', route: '' },
       ],
@@ -79,7 +79,7 @@ export default class SettingsScreen extends React.Component {
 
 SettingsScreen.navigationOptions = {
   // title: 'Setting',
-  header: null
+  header: null,
 };
 
 
