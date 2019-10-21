@@ -15,17 +15,19 @@ export default class Profile extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.avatarContainer}>
-                    <Avatar.Image
-                        source={__DEV__ ? require('../../assets/images/robot-dev.png') : require('../../assets/images/robot-prod.png')}
-                        size={90}
-                    />
-                </View>
-                <View style={styles.inputContainer}>
-                    <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => this.setState({ text })} />
-                    <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} onChangeText={text => this.setState({ text })} />
-                    <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} onChangeText={text => this.setState({ text })} />
-                    <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} onChangeText={text => this.setState({ text })} />
+                <View>
+                    <View style={styles.avatarContainer}>
+                        <Avatar.Image
+                            source={__DEV__ ? require('../../assets/images/robot-dev.png') : require('../../assets/images/robot-prod.png')}
+                            size={90}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => this.setState({ text })} />
+                        <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} onChangeText={text => this.setState({ text })} />
+                        <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} onChangeText={text => this.setState({ text })} />
+                        <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} onChangeText={text => this.setState({ text })} />
+                    </View>
                 </View>
                 <View style={styles.btnContainer}>
                     <TouchableRipple>
@@ -46,6 +48,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 16,
         marginVertical: 10,
+        justifyContent: 'flex-end'
     },
     avatarContainer: {
         alignItems: 'flex-start',
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     btnContainer: {
+        flex: 1,
         justifyContent: 'flex-end',
     },
     btn: {
