@@ -9,7 +9,18 @@ export default class Profile extends Component {
             email: 'Sabbir@Mistrimama.com',
             phone: '01420420420',
             gender: 'Other',
-        }
+        },
+        formEditable: false,
+    }
+
+    onEdit = () => {
+        this.setState({ formEditable: true })
+    }
+
+    onChangeformValue = (text, name) => {
+        let { userProfileInfo } = this.state;
+        userProfileInfo[name] = text;
+        this.setState({ userProfileInfo });
     }
 
     render() {
@@ -23,15 +34,19 @@ export default class Profile extends Component {
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => this.setState({ text })} />
-                        <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} onChangeText={text => this.setState({ text })} />
-                        <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} onChangeText={text => this.setState({ text })} />
-                        <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} onChangeText={text => this.setState({ text })} />
+                        <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'name') }} />
+                        <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'email') }} />
+                        <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'phone') }} />
+                        <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'gender') }} />
                     </View>
                 </View>
+
                 <View style={styles.btnContainer}>
                     <TouchableRipple>
-                        <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} >Edit  Profile</Button>
+                        {!this.state.formEditable ?
+                            <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onEdit}>Edit  Profile</Button> :
+                            <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} >Update Profile</Button>
+                        }
                     </TouchableRipple>
                 </View>
             </View>

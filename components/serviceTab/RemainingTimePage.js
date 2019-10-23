@@ -19,7 +19,7 @@ export default class RemainingTimePage extends Component {
                     <View><Text style={styles.timeNum} >35</Text><Text style={styles.timeString} >Seconds</Text></View>
                 </View>
                 <Image source={{ uri: 'https://images.unsplash.com/photo-1562887106-2588234e7b77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80' }} style={styles.thumbnail} />
-                <Text style={styles.arriveText}>Nanny arrived at 10:30AM</Text>
+                <Text style={styles.arriveText}>Nanny arrived at 10:30 AM</Text>
             </View>
         )
     }
