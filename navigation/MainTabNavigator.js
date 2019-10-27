@@ -10,6 +10,8 @@ import HistoryScreen from '../screens/HistoryScreen';
 
 //sub-Activity
 import Profile from '../components/settingTab/Profile';
+import Packages from '../components/homeTab/Packages';
+
 
 
 const config = Platform.select({
@@ -107,7 +109,8 @@ tabNavigator.navigationOptions = {
 
 const tabStackNavigator = createStackNavigator({
   tabNavigator,
-  Profile
+  Profile,
+  Packages
 })
 tabStackNavigator.path = '';
 

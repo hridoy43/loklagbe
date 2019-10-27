@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import { Divider, Card, Avatar, Text } from 'react-native-paper';
+import { Divider, Card} from 'react-native-paper';
 
 import HistoryScreenHeader from '../components/historyTab/HistoryScreenHeader';
 import HistoryList from '../components/historyTab/HistoryList';
-import { ExpoLinksView } from '@expo/samples';
 
 
 

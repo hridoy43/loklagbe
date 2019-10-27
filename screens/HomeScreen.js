@@ -20,10 +20,8 @@ export default function HomeScreen(props) {
 
       </View>
 
-
-
       <ScrollView style={styles.container}>
-        <CallCard />
+        <CallCard navigation={props.navigation} />
         <Divider style={{ height: 12 }} />
 
         {/* <View style={styles.getStartedContainer}>

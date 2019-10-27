@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Card, Avatar, Headline } from 'react-native-paper'
+import { Card, Avatar, Headline, Text } from 'react-native-paper'
 import Icon from '../common/Icon';
 
 export default class CallCard extends Component {
@@ -12,14 +12,14 @@ export default class CallCard extends Component {
                 <View style={styles.callContainer}>
                     <View style={styles.cardContainer}>
                         <TouchableOpacity>
-                            <Card.Title title="Call Nany" subtitle="Choose Package" left={(props) => <Avatar.Image {...props} source={require('../../assets/images/nanny.png')} />} />
+                            <Card.Title title="Call Nany" subtitle={<Text onPress={e => console.log('Card Clicked')}>Choose Package</Text>} left={(props) => <Avatar.Image {...props} source={require('../../assets/images/nanny.png')} />} />
                         </TouchableOpacity>
 
                     </View>
                     <View style={styles.borderView} />
                     <View style={styles.cardContainer}>
                         <TouchableOpacity>
-                            <Card.Title title="Call Doctor" subtitle="Choose Package" left={(props) => <Avatar.Image {...props} source={require('../../assets/images/doctor.png')} />} />
+                            <Card.Title title="Call Doctor" subtitle={<Text onPress={e => console.log('Card Clicked')}>Choose Package</Text>} left={(props) => <Avatar.Image {...props} source={require('../../assets/images/doctor.png')} />} />
                         </TouchableOpacity>
                     </View>
                 </View>
