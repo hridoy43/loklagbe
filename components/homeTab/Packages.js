@@ -9,9 +9,7 @@ export default class Packages extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-
-                <Divider style={{ height: 2 }} />
-
+                <HistoryScreenHeader />
                 {/* Call_Card */}
                 <View style={styles.cardContainer}>
                     <View style={styles.singleCardContainer}>
@@ -44,7 +42,16 @@ export default class Packages extends React.Component {
 
 Packages.navigationOptions = {
     //title: 'History',     //Header_Title
-    headerTitle: () => <HistoryScreenHeader />
+    // headerStyle: {
+    //     height: 100,
+    //     position: 'absolute',
+    //     backgroundColor: 'transparent',
+    //     zIndex: 100,
+    //     top: 0,
+    //     left: 0,
+    //     right: 0
+    // }
+    headerTransparent: true
 };
 
 const styles = StyleSheet.create({

@@ -44,7 +44,7 @@ export default class Profile extends Component {
                 <View style={styles.btnContainer}>
                     <TouchableRipple>
                         {!this.state.formEditable ?
-                            <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onEdit}>Edit  Profile</Button> :
+                            <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onEdit}>Edit Profile</Button> :
                             <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} >Update Profile</Button>
                         }
                     </TouchableRipple>

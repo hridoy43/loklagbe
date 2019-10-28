@@ -12,7 +12,7 @@ export default class CallCard extends Component {
                 <View style={styles.callContainer}>
                     <View style={styles.cardContainer}>
                         <TouchableOpacity>
-                            <Card.Title title="Call Nany" subtitle={<Text onPress={e => console.log('Card Clicked')}>Choose Package</Text>} left={(props) => <Avatar.Image {...props} source={require('../../assets/images/nanny.png')} />} />
+                            <Card.Title title="Call Nany" subtitle={<Text onPress={e => console.log(this.props.navigation.navigate('Packages'))}>Choose Package</Text>} left={(props) => <Avatar.Image {...props} source={require('../../assets/images/nanny.png')} />} />
                         </TouchableOpacity>
 
                     </View>
