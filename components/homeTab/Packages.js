@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Divider, Card } from 'react-native-paper';
+import { Divider, Card} from 'react-native-paper';
 
 import HistoryScreenHeader from '../historyTab/HistoryScreenHeader';
+import PackageCarousel from './PackageCarousel';
 
 export default class Packages extends React.Component {
 
@@ -10,6 +11,7 @@ export default class Packages extends React.Component {
         return (
             <View style={styles.container}>
                 <HistoryScreenHeader />
+                <Divider style={{ height: 2 }} />
                 {/* Call_Card */}
                 <View style={styles.cardContainer}>
                     <View style={styles.singleCardContainer}>
@@ -31,10 +33,8 @@ export default class Packages extends React.Component {
 
                 <Divider style={{ height: 2 }} />
 
+                <PackageCarousel />
 
-                <View>
-
-                </View>
             </View>
         )
     }
@@ -70,5 +70,6 @@ const styles = StyleSheet.create({
     },
     cardTitle: {
         alignSelf: 'center',
-    }
+    },
+
 });
