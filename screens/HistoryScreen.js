@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import { Divider, Card} from 'react-native-paper';
+import { Divider, Card } from 'react-native-paper';
 
 import HistoryScreenHeader from '../components/historyTab/HistoryScreenHeader';
 import HistoryList from '../components/historyTab/HistoryList';
@@ -20,7 +20,7 @@ export default function HistoryScreen() {
                 <View style={styles.singleCardContainer}>
                     <TouchableOpacity>
                         <Card>
-                            <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL NANY" style={styles.cardTitle} />
+                            <Card.Title titleStyle={{ textAlign: 'center' }} title="NANY" style={styles.cardTitle} />
                         </Card>
                     </TouchableOpacity>
                 </View>
@@ -28,7 +28,7 @@ export default function HistoryScreen() {
                 <View style={styles.singleCardContainer}>
                     <TouchableOpacity>
                         <Card style={styles.cardContent}>
-                            <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL DOCTOR" style={styles.cardTitle} />
+                            <Card.Title titleStyle={{ textAlign: 'center' }} title="DOCTOR" style={styles.cardTitle} />
                         </Card>
                     </TouchableOpacity>
                 </View>

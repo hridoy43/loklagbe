@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Divider, Card} from 'react-native-paper';
+import { Divider, Card } from 'react-native-paper';
 
 import HistoryScreenHeader from '../historyTab/HistoryScreenHeader';
 import PackageCarousel from './PackageCarousel';
@@ -17,7 +17,7 @@ export default class Packages extends React.Component {
                     <View style={styles.singleCardContainer}>
                         <TouchableOpacity>
                             <Card>
-                                <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL NANY" style={styles.cardTitle} />
+                                <Card.Title titleStyle={{ textAlign: 'center' }} title="NANY" style={styles.cardTitle} />
                             </Card>
                         </TouchableOpacity>
                     </View>
@@ -25,7 +25,7 @@ export default class Packages extends React.Component {
                     <View style={styles.singleCardContainer}>
                         <TouchableOpacity>
                             <Card style={styles.cardContent}>
-                                <Card.Title titleStyle={{ textAlign: 'center' }} title="CALL DOCTOR" style={styles.cardTitle} />
+                                <Card.Title titleStyle={{ textAlign: 'center' }} title="DOCTOR" style={styles.cardTitle} />
                             </Card>
                         </TouchableOpacity>
                     </View>

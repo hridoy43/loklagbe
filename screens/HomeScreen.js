@@ -10,17 +10,17 @@ import HomeScreenHeader from '../components/homeTab/HomeScreenHeader';
 import { MonoText } from '../components/StyledText';
 import CallCard from '../components/homeTab/CallCard';
 import HomeCarousel from '../components/homeTab/HomeCarousel';
+import Invite from '../components/homeTab/Invite';
+
 
 export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <HomeScreenHeader />
-      <Divider style={{ height: 16 }} />
-      <View>
-
-      </View>
+      <Divider style={{ height: 2 }} />
 
       <ScrollView style={styles.container}>
+        <Divider style={{ height: 16 }} />
         <CallCard navigation={props.navigation} />
         <Divider style={{ height: 12 }} />
 
@@ -31,7 +31,9 @@ export default function HomeScreen(props) {
         <HomeCarousel />
 
         <Divider style={{ height: 10 }} />
+        <Invite />
 
+        <Divider style={{ height: 4 }} />
       </ScrollView>
 
 
