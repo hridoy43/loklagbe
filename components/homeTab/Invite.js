@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { Text, Headline, TextInput, Button } from 'react-native-paper'
 import Layout from '../../constants/Layout'
-import { runInDebugContext } from 'vm';
 //import ShareBgIcon from '../../assets/images/ShareBgIcon'
 
 export default class Invite extends Component {
@@ -38,9 +37,8 @@ const styles = StyleSheet.create({
     },
     thumbnail: {
         resizeMode: 'stretch',
-        height: 180,
-        //width: Layout.window.width - 40,
-        paddingHorizontal: 20
+        height: 200,
+        width: Layout.window.width - 20,
     },
     HeadingText: {
         fontSize: 20,
