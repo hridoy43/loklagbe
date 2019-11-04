@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     thumbnail: {
         resizeMode: 'stretch',
         height: 200,
-        width: Layout.window.width - 20,
+        width: Layout.window.width - 32,
     },
     HeadingText: {
         fontSize: 20,
