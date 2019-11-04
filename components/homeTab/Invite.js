@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import { Text, Headline, TextInput, Button } from 'react-native-paper'
+import { Text, Headline, TextInput, Button, Card } from 'react-native-paper'
 import Layout from '../../constants/Layout'
 //import ShareBgIcon from '../../assets/images/ShareBgIcon'
 
@@ -17,9 +17,13 @@ export default class Invite extends Component {
                 <View style={styles.invitationCodeContainer}>
                     <Text style={styles.inviteBoxLabelText}>Your invitation code</Text>
                     <View style={styles.inviteButtonContainer}>
-                        <TextInput style={styles.inputBox} label='' placeholder='Discount463' mode='outlined' disabled />
+                        <View style={styles.discountContainer}>
+                            <Text style={styles.discountText}>Discount4C</Text>
+                            <Button>Copy</Button>
+                        </View>
                         <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onShare}>Share</Button>
                     </View>
+
                 </View>
 
             </View>
@@ -61,21 +65,35 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: 'rgba(0,0,0,0.5)',
     },
-    inputBox: {
-        height: 50,
-        width: '70%',
-        justifyContent: 'center',
-    },
     inviteButtonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: 10,
+    },
+    discountContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+        borderWidth: 2,
+        borderRadius: 14,
+        borderColor: '#ccc',
+        width: '70%'
+
+    },
+    discountText: {
+        fontSize: 18,
+        fontWeight: "700",
+        color: 'rgba(0,0,0,0.3)',
+        width: '70%',
+        textAlign: 'center',
+        alignSelf: 'center'
     },
     btn: {
         fontSize: 50,
         fontWeight: "700",
         justifyContent: 'center',
         borderWidth: 1,
-        borderRadius: 25
+        borderRadius: 14
     },
     btnProp: {
         height: 40,
