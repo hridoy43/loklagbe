@@ -7,7 +7,7 @@ export default class CallCard extends Component {
     render() {
         return (
 
-            <View style={styles.container}>
+            <View style={styles.container} elevation={10}>
                 <Headline style={styles.headlineText}>What can I help?</Headline>
                 <View style={styles.callContainer}>
                     <View style={styles.cardContainer}>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 10,
         paddingHorizontal: 15,
+        backgroundColor: '#fff'
 
     },
     headlineText: {

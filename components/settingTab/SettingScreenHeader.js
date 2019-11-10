@@ -7,7 +7,7 @@ import Icon from '../common/Icon';
 export default class SettingScreenHeader extends Component {
     render() {
         return (
-            <View style={styles.headerContainer}>
+            <View style={styles.headerContainer} elevation={8}>
                 {/* header_Image */}
                 <View style={styles.headerAvatar}>
                     <Avatar.Image

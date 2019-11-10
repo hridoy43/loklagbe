@@ -7,7 +7,7 @@ import Color from '../../constants/Colors'
 export default class RemainingTimePage extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container} elevation={5}>
                 <View style={styles.textRow}>
                     <Text style={styles.headText}>Remaining Service</Text>
                     <Text style={{ ...styles.coloredText, ...styles.headText }}>Platinum Pack</Text>
@@ -27,7 +27,8 @@ export default class RemainingTimePage extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10
+        padding: 10,
+        backgroundColor: "#fff"
     },
     textRow: {
         flexDirection: 'row',

@@ -17,10 +17,10 @@ export default function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <HomeScreenHeader />
-      <Divider style={{ height: 2 }} />
+      {/* <Divider style={{ height: 2 }} /> */}
 
       <ScrollView style={styles.container}>
-        <Divider style={{ height: 16 }} />
+        <Divider style={{ height: 14 }} />
         <CallCard navigation={props.navigation} />
         <Divider style={{ height: 12 }} />
 

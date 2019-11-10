@@ -6,7 +6,7 @@ import Icon from '../common/Icon';
 export default class HomeScreenHeader extends Component {
     render() {
         return (
-            <View style={styles.homeContainer}>
+            <View style={styles.homeContainer} elevation={10}>
 
                 {/* Header Text */}
                 <View style={styles.headerText}>

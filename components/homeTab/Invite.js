@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         fontWeight: "600",
         color: 'rgba(0,0,0,0.4)',
+        backgroundColor: "#fff"
     },
     thumbnail: {
         resizeMode: 'stretch',

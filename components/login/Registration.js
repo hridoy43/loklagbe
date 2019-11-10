@@ -34,7 +34,7 @@ export default class Registration extends Component {
                         <TextInput style={styles.inputBoxinRow} label='P.O Box' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ lasttName })} />
                     </View>
 
-                    <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
+                    <TextInput secureTextEntry={true} style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
 
                     <TouchableRipple>
                         <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} >Register</Button>

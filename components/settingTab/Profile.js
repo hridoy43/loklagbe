@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { TextInput, Avatar, Button, TouchableRipple } from 'react-native-paper';
 
 export default class Profile extends Component {
@@ -25,21 +25,25 @@ export default class Profile extends Component {
 
     render() {
         return (
+
             <View style={styles.container}>
-                <View>
-                    <View style={styles.avatarContainer}>
-                        <Avatar.Image
-                            source={__DEV__ ? require('../../assets/images/robot-dev.png') : require('../../assets/images/robot-prod.png')}
-                            size={90}
-                        />
+                <ScrollView>
+                    <View>
+                        <View style={styles.avatarContainer}>
+                            <Avatar.Image
+                                source={__DEV__ ? require('../../assets/images/robot-dev.png') : require('../../assets/images/robot-prod.png')}
+                                size={90}
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'name') }} />
+                            <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'email') }} />
+                            <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'phone') }} />
+                            <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'gender') }} />
+                        </View>
                     </View>
-                    <View style={styles.inputContainer}>
-                        <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'name') }} />
-                        <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'email') }} />
-                        <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'phone') }} />
-                        <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'gender') }} />
-                    </View>
-                </View>
+                </ScrollView>
+
 
                 <View style={styles.btnContainer}>
                     <TouchableRipple>

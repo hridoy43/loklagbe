@@ -33,7 +33,7 @@ export default class HomeCarousel extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container} elevation={6}>
                 <Headline style={styles.carouselHeader}>Featured</Headline>
                 <Carousel
                     sliderWidth={screenWidth}
@@ -49,6 +49,10 @@ export default class HomeCarousel extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#fff'
+    },
+
     item: {
         width: screenWidth - 60,
         height: 200,

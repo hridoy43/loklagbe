@@ -14,9 +14,9 @@ export default function ServiceScreen() {
       <Divider style={{ height: 10 }} />
       <ScrollView >
         {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-      */}
+         * Go ahead and delete ExpoLinksView and replace it with your content;
+         * we just wanted to provide you with some helpful links.
+        */}
         <ServiceSecondHeader />
         <Divider style={{ height: 8, padding: 0, margin: 0 }} />
 

@@ -16,8 +16,8 @@ export default function HistoryScreen() {
             <Divider style={{ height: 2 }} />
 
             {/* Call_Card */}
-            <View style={styles.cardContainer}>
-                <View style={styles.singleCardContainer}>
+            <View style={styles.cardContainer} elevation={8}>
+                <View style={styles.singleCardContainer} >
                     <TouchableOpacity>
                         <Card>
                             <Card.Title titleStyle={{ textAlign: 'center' }} title="NANY" style={styles.cardTitle} />
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     cardContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        backgroundColor: "#fff"
     },
     singleCardContainer: {
         flex: 1,

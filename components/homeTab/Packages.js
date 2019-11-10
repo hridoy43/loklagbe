@@ -13,7 +13,7 @@ export default class Packages extends React.Component {
                 <HistoryScreenHeader />
                 <Divider style={{ height: 2 }} />
                 {/* Call_Card */}
-                <View style={styles.cardContainer}>
+                <View style={styles.cardContainer} elevation={8}>
                     <View style={styles.singleCardContainer}>
                         <TouchableOpacity>
                             <Card>
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     cardContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        backgroundColor: "#fff"
     },
     singleCardContainer: {
         flex: 1,

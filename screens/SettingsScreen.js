@@ -41,19 +41,21 @@ export default class SettingsScreen extends React.Component {
   settingViewLoader = () => {
     return <View style={styles.moreContainer} >
       {Object.keys(this.state.profileOption).map((headerMenu, index) => {
-        return <View style={styles.optionComponent} key={index}>
-          <Text style={styles.optionHeader}>{this.headerMenuLoader(headerMenu)}</Text>
-          {
-            this.state.profileOption[headerMenu].map((item, index) => {
-              return <TouchableOpacity key={index} onPress={e => this.onRoute(e, item.route)}>
-                <View style={styles.optionRow}>
-                  <Icon name={item.iconName} fontName={item.fontName} />
-                  <Text style={styles.optionText}>{item.optionText}</Text>
-                </View>
-                {this.state.profileOption[headerMenu].length - 1 != index ? <Divider /> : null}
-              </TouchableOpacity>
-            })
-          }
+        return <View key={index}>
+          <View style={styles.optionComponent} elevation={3}>
+            <Text style={styles.optionHeader}>{this.headerMenuLoader(headerMenu)}</Text>
+            {
+              this.state.profileOption[headerMenu].map((item, index) => {
+                return <TouchableOpacity key={index} onPress={e => this.onRoute(e, item.route)} >
+                  <View style={styles.optionRow}>
+                    <Icon name={item.iconName} fontName={item.fontName} />
+                    <Text style={styles.optionText}>{item.optionText}</Text>
+                  </View>
+                  {this.state.profileOption[headerMenu].length - 1 != index ? <Divider /> : null}
+                </TouchableOpacity>
+              })
+            }
+          </View>
           <Divider style={styles.dividerStyle} />
         </View>
       })
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
   },
   optionComponent: {
     padding: 10,
+    backgroundColor: "#fff"
   },
   optionRow: {
     flexDirection: 'row',

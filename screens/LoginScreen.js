@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TextInput, Button, Text, TouchableRipple } from 'react-native-paper';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 
 class LoginScreen extends React.Component {
     state = {
@@ -17,7 +17,7 @@ class LoginScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="margin" enabled>
                 <Text style={styles.loginHeaderText}>Log In</Text>
                 <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
                 <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
@@ -28,7 +28,7 @@ class LoginScreen extends React.Component {
                 <TouchableRipple>
                     <Text style={styles.linkRegistrationText} onPress={this.onRegister} >Register Here</Text>
                 </TouchableRipple>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }

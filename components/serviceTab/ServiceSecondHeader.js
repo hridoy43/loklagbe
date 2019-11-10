@@ -6,8 +6,8 @@ import ServicePageGreetingIcon from '../../assets/images/ServicePageGreetingIcon
 
 const ServiceSecondHeader = () => {
     return (
-        <View style={styles.container}>
-            
+        <View style={styles.container} elevation={5}>
+
             <View style={styles.nameContainer}>
                 <Text style={styles.greetingText}>
                     Hello! Mr. Hridoy {"\n"}
@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         padding: 20,
-        paddingBottom: 2
+        paddingBottom: 2,
+        backgroundColor: "#fff"
     },
     nameContainer: {
         flex: 4,
