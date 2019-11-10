@@ -20,7 +20,7 @@ class LoginScreen extends React.Component {
             <KeyboardAvoidingView style={styles.container} behavior="margin" enabled>
                 <Text style={styles.loginHeaderText}>Log In</Text>
                 <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
-                <TextInput style={styles.inputBox} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
+                <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
                 <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
