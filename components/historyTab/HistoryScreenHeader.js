@@ -10,7 +10,7 @@ export default class HistoryScreenHeader extends Component {
                 {/* Header Text */}
                 <View style={styles.headerText}>
                     <Text style={styles.mainHeaderText}> Be Care </Text>
-                    <Text style={styles.subHeaderText}> Yes, Be Care! </Text>
+                    <Text style={styles.subHeaderText}> Yes, We Care! </Text>
                 </View>
             </View>
         )

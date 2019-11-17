@@ -11,7 +11,7 @@ export default class HomeScreenHeader extends Component {
                 {/* Header Text */}
                 <View style={styles.headerText}>
                     <Text style={styles.mainHeaderText}> Be Care </Text>
-                    <Text style={styles.subHeaderText}> Yes, Be Care! </Text>
+                    <Text style={styles.subHeaderText}> Yes, We Care! </Text>
                     <View style={styles.location}>
                         <Icon focused={true} fontName="materialIcons" name={Platform.OS === 'ios' ? `location-on` : 'location-on'} />
                         <Text style={styles.locationText}> Shekertek, Dhaka, BD </Text>
