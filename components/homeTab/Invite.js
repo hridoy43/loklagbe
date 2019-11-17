@@ -6,10 +6,10 @@ import Layout from '../../constants/Layout'
 
 export default class Invite extends Component {
     render() {
-        console.log('ScreenWidth', Layout.window.width);
+        //console.log('ScreenWidth', Layout.window.width);
         return (
             <View style={styles.container}>
-                <Image source={require('../../assets/images/SharewithFriendsBg.png')} style={styles.thumbnail}></Image>
+                <Image source={require('../../assets/images/SharewithFriendsBg1.png')} style={styles.thumbnail}></Image>
                 <Headline style={styles.HeadingText}>Invite Friends And Get Discount</Headline>
                 <Text style={styles.subHeadingText}>Invite Friends And Get Discount!</Text>
                 <Text style={styles.paragraph}>Share this code with your two friend and ask them two use this code on their  First Request and your both friend will get amazing discount. You will get your discount on finishing their first service.</Text>

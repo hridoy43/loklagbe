@@ -4,19 +4,31 @@ import axios from 'axios';
 
 class User {
     login(data) {
-        axios.post('api/auth/login', data)
-            .then(res => this.responseAfterLogin(res))
+        return axios.post('http://fineartproducts.shop/api/login', data)
+            .then(res => {
+                if (res.data.message == "Invalid credentials") {
+                    console.log("Invalid credentials")
+                    return false;
+                } else {
+                    this.responseAfterLogin(res);
+                    return true;
+                }
+
+            })
             .catch(error => console.log(error.response.data))
     }
 
     responseAfterLogin(res) {
+
         const token = res.data.access_token
         const user = res.data.user
+        AppStorage.store(user, token)
 
-        if (Token.isValid(token)) {
-            AppStorage.store(user, token)
-            window.location = '/forum'
-        }
+        // if (Token.isValid(token)) {
+        //     AppStorage.store(user, token)
+        //     window.location = '/forum'
+        // }
+
     }
 
     hasToken() {

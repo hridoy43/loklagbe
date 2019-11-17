@@ -1,16 +1,32 @@
 import * as React from 'react';
-import { TextInput, Button, Text, TouchableRipple } from 'react-native-paper';
-import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { TextInput, Button, Text, TouchableRipple, Snackbar } from 'react-native-paper';
+import { View, StyleSheet, KeyboardAvoidingView, AsyncStorage } from 'react-native';
+import User from '../components/service/helper/User';
 
 class LoginScreen extends React.Component {
     state = {
-        userName: '',
+        phone: '',
         password: '',
+        visible: false
     }
 
-    onLogin = () => {
-        this.props.navigation.navigate('Main')
+    onLogin = async () => {
+        let user = {
+            phone: this.state.phone,
+            password: this.state.password
+        }
+
+        const status = await User.login(user);
+        //this.props.navigation.navigate('Main')
+        if (status) {
+            let user = AsyncStorage.getItem('user')
+            console.log('Log: LoginScreen -> onLogin -> AsyncStorageUser', user)
+            this.props.navigation.navigate('Main')
+        } else {
+            this.setState({ visible: true })
+        }
     }
+
     onRegister = () => {
         this.props.navigation.navigate('Register')
     }
@@ -19,8 +35,8 @@ class LoginScreen extends React.Component {
         return (
             <KeyboardAvoidingView style={styles.container} behavior="margin" enabled>
                 <Text style={styles.loginHeaderText}>Log In</Text>
-                <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.text} onChangeText={userName => this.setState({ userName })} />
-                <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.text} onChangeText={pass => this.setState({ pass })} />
+                <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.phone} onChangeText={phone => this.setState({ phone })} />
+                <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.password} onChangeText={password => this.setState({ password })} />
                 <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
@@ -28,6 +44,14 @@ class LoginScreen extends React.Component {
                 <TouchableRipple>
                     <Text style={styles.linkRegistrationText} onPress={this.onRegister} >Register Here</Text>
                 </TouchableRipple>
+
+                <Snackbar
+                    visible={this.state.visible}
+                    onDismiss={() => this.setState({ visible: false })}
+                    style={styles.snackbarDenger}
+                >
+                    Invalid Credential! Please Try Again With Valid Data.
+                </Snackbar>
             </KeyboardAvoidingView>
         );
     }
@@ -90,5 +114,9 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: '#2e78b7',
         textAlign: 'center',
+    },
+    snackbarDenger: {
+        color: "#fff",
+        backgroundColor: "#EA2027"
     }
 });

@@ -6,7 +6,7 @@ class AppStorage {
     }
 
     storeUser(user) {
-        AsyncStorage.setItem('user', user);
+        AsyncStorage.setItem('user', JSON.stringify(user));
     }
 
     store(user, token) {

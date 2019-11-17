@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { Divider, Avatar, Text } from 'react-native-paper';
 import SettingScreenHeader from '../components/settingTab/SettingScreenHeader';
 import Icon from '../components/common/Icon';
+import User from '../components/service/helper/User';
 import { ExpoConfigView } from '@expo/samples';
 
 export default class SettingsScreen extends React.Component {
@@ -29,6 +30,9 @@ export default class SettingsScreen extends React.Component {
   }
 
   onRoute = (e, routeName) => {
+    if (routeName == 'Login') {
+      User.logout();
+    }
     this.props.navigation.navigate(routeName)
   }
 

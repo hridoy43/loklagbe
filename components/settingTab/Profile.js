@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { TextInput, Avatar, Button, TouchableRipple } from 'react-native-paper';
 
+let formEditable;
 export default class Profile extends Component {
     state = {
         userProfileInfo: {
@@ -10,6 +11,7 @@ export default class Profile extends Component {
             phone: '01420420420',
             gender: 'Other',
         },
+
         formEditable: false,
     }
 
@@ -24,6 +26,8 @@ export default class Profile extends Component {
     }
 
     render() {
+
+        formEditable = this.state.formEditable;
         return (
 
             <View style={styles.container}>
@@ -36,10 +40,41 @@ export default class Profile extends Component {
                             />
                         </View>
                         <View style={styles.inputContainer}>
-                            <TextInput style={styles.textInput} label='Name' value={this.state.userProfileInfo.name} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'name') }} />
-                            <TextInput style={styles.textInput} label='Email' value={this.state.userProfileInfo.email} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'email') }} />
-                            <TextInput style={styles.textInput} label='Phone' value={this.state.userProfileInfo.phone} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'phone') }} />
-                            <TextInput style={styles.textInput} label='Gender' value={this.state.userProfileInfo.gender} editable={this.state.formEditable} onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'gender') }} />
+                            <TextInput
+                                style={styles.textInput}
+                                label='Name'
+                                value={this.state.userProfileInfo.name}
+                                disabled={!this.state.formEditable}
+                                //editable={this.state.formEditable}
+                                onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'name') }}
+                            />
+
+                            <TextInput
+                                style={styles.textInput}
+                                label='Email'
+                                value={this.state.userProfileInfo.email}
+                                //editable={this.state.formEditable}
+                                disabled={!this.state.formEditable}
+                                onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'email') }}
+                            />
+
+                            <TextInput
+                                style={styles.textInput}
+                                label='Phone'
+                                value={this.state.userProfileInfo.phone}
+                                //editable={this.state.formEditable}
+                                disabled={!this.state.formEditable}
+                                onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'phone') }}
+                            />
+
+                            <TextInput
+                                style={styles.textInput}
+                                label='Gender'
+                                value={this.state.userProfileInfo.gender}
+                                //editable={this.state.formEditable}
+                                disabled={!this.state.formEditable}
+                                onChangeText={text => { this.state.formEditable && this.onChangeformValue(text, 'gender') }}
+                            />
                         </View>
                     </View>
                 </ScrollView>
@@ -78,7 +113,8 @@ const styles = StyleSheet.create({
     },
     textInput: {
         marginVertical: 6,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        //borderBottomWidth: formEditable ? null : 1,
     },
     btnContainer: {
         flex: 1,
