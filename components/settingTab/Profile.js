@@ -6,10 +6,10 @@ let formEditable;
 export default class Profile extends Component {
     state = {
         userProfileInfo: {
-            name: 'Mistri Mama Sabbir',
-            email: 'Sabbir@Mistrimama.com',
-            phone: '01420420420',
-            gender: 'Other',
+            name: 'Wahiduzzaman Hridoy',
+            email: 'hridoy@gmail.com',
+            phone: '01727665348',
+            gender: 'Male',
         },
 
         formEditable: false,
