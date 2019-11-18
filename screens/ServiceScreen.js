@@ -11,8 +11,9 @@ export default function ServiceScreen() {
 
     <View style={styles.container}>
       <HomeScreenHeader />
-      <Divider style={{ height: 10 }} />
+
       <ScrollView style={styles.container}>
+        <Divider style={{ height: 10 }} />
         {/**
          * Go ahead and delete ExpoLinksView and replace it with your content;
          * we just wanted to provide you with some helpful links.

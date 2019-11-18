@@ -2,21 +2,17 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import { Text, Button } from 'react-native-paper'
 import Color from '../../constants/Colors'
+import Layout from '../../constants/Layout'
 import Icon from '../common/Icon';
 
 
 export default class RemainingTimePage extends Component {
     state = {
-        videoBanner: ''
+        videoBanner: false
     }
 
     onPlayVideo = () => {
-        let { videoBanner } = this.state;
-        if (videoBanner) {
-            videoBanner = ''
-        } else videoBanner = '../../assets/images/videoPlayBanner.jpg'
-
-        this.setState({ videoBanner })
+        this.setState({ videoBanner: !this.state.videoBanner })
     }
     render() {
         return (
@@ -32,12 +28,12 @@ export default class RemainingTimePage extends Component {
                     <View><Text style={styles.timeNum} >35</Text><Text style={styles.timeString} >Seconds</Text></View>
                 </View>
                 {this.state.videoBanner ?
-                    <Image source={require(this.state.videoBanner)} style={styles.thumbnail} /> :
+                    <Image source={require('../../assets/images/videoPlayBanner.jpg')} style={styles.thumbnail1} /> :
                     <Image source={{ uri: 'https://images.unsplash.com/photo-1562887106-2588234e7b77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80' }} style={styles.thumbnail} />
                 }
                 <View style={styles.bottomButtonContainer}>
                     <Button icon="call" Outlined>Call</Button>
-                    <Button icon="camera" mode="outlined" onClick={this.onPlayVideo}>CCTV</Button>
+                    <Button icon="camera" mode="outlined" onPress={this.onPlayVideo}>CCTV</Button>
                     <Button Outlined>Comment</Button>
                 </View>
                 <Text style={styles.arriveText}>Nanny arrived at 10:30 AM</Text>
@@ -83,6 +79,12 @@ const styles = StyleSheet.create({
     thumbnail: {
         resizeMode: 'cover',
         height: 200,
+        paddingHorizontal: 20
+    },
+    thumbnail1: {
+        resizeMode: 'contain',
+        height: 200,
+        width: Layout.width - 20,
         paddingHorizontal: 20
     },
     arriveText: {
