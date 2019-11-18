@@ -15,6 +15,7 @@ export default class RemainingTimePage extends Component {
         this.setState({ videoBanner: !this.state.videoBanner })
     }
     render() {
+        console.log(Layout.window.width);
         return (
             <View style={styles.container} elevation={5}>
                 <View style={styles.textRow}>
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     thumbnail1: {
         resizeMode: 'contain',
         height: 200,
-        width: Layout.width - 20,
+        width: Layout.window.width - 20,
         paddingHorizontal: 20
     },
     arriveText: {

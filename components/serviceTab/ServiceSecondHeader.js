@@ -1,29 +1,52 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { Component } from 'react'
+import { View, StyleSheet, AsyncStorage } from 'react-native'
 import { Text, } from 'react-native-paper'
 import ServicePageGreetingIcon from '../../assets/images/ServicePageGreetingIcon'
 
+let currentDate = new Date();
+export default class ServiceSecondHeader extends Component {
 
-const ServiceSecondHeader = () => {
-    return (
-        <View style={styles.container} elevation={5}>
+    state = {
+        userInfo: {}
+    }
+    componentWillMount() {
+        AsyncStorage.getItem('user')
+            .then(res => this.setState({ userInfo: JSON.parse(res) }))
+    }
 
-            <View style={styles.nameContainer}>
-                <Text style={styles.greetingText}>
-                    Hello! Mr. Hridoy {"\n"}
-                    Good Morning
-                </Text>
-            </View>
-            <View style={styles.imageContainer}>
-                <View style={styles.greetingImage}>
-                    <ServicePageGreetingIcon />
+    render() {
+        let name = this.state.userInfo.name;
+        let lastName = '';
+        if (name) { lastName = name.split(' ')[1] }
+
+        let hours = currentDate.getHours();
+        let greeting = ''
+        if (5 <= hours >= 11) {
+            greeting = "Morning"
+        } else if (12 <= hours >= 16) {
+            greeting = "Afternoon"
+
+        } else greeting = "Evening"
+
+        return (
+            <View style={styles.container} elevation={5}>
+
+                <View style={styles.nameContainer}>
+                    <Text style={styles.greetingText}>
+                        Hello! Mr. {lastName} {"\n"}
+                        Good {greeting}
+                    </Text>
+                </View>
+                <View style={styles.imageContainer}>
+                    <View style={styles.greetingImage}>
+                        <ServicePageGreetingIcon />
+                    </View>
                 </View>
             </View>
-        </View>
-    )
+        )
+    }
 }
 
-export default ServiceSecondHeader
 
 const styles = StyleSheet.create({
     container: {

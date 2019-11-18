@@ -3,6 +3,7 @@ import AppStorage from './AppStorage'
 import axios from 'axios';
 
 class User {
+
     login(data) {
         return axios.post('http://fineartproducts.shop/api/login', data)
             .then(res => {
@@ -15,7 +16,7 @@ class User {
                 }
 
             })
-            .catch(error => console.log(error.response.data))
+            .catch(error => console.log('error', error.response.data))
     }
 
     responseAfterLogin(res) {
@@ -45,7 +46,7 @@ class User {
 
     logout() {
         AppStorage.clear()
-        window.location = '/forum'
+        //window.location = '/forum'
     }
 
     name() {
@@ -59,6 +60,20 @@ class User {
             const payload = Token.payload(AppStorage.getToken())
             return payload.sub
         }
+    }
+
+
+    //registration
+    register(data) {
+        return axios.post('http://fineartproducts.shop/api/register', data)
+            .then(res => {
+                console.log('Log: User -> register -> res', res)
+                return res;
+            })
+            .catch(error => {
+                console.log('error', error.response.data)
+                return error.response
+            })
     }
 }
 

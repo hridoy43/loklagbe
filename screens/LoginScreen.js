@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { TextInput, Button, Text, TouchableRipple, Snackbar } from 'react-native-paper';
 import { View, StyleSheet, KeyboardAvoidingView, AsyncStorage } from 'react-native';
+import { TextInput, Button, Text, TouchableRipple, Snackbar, HelperText } from 'react-native-paper';
 import User from '../components/service/helper/User';
 
 class LoginScreen extends React.Component {
@@ -35,8 +35,27 @@ class LoginScreen extends React.Component {
         return (
             <KeyboardAvoidingView style={styles.container} behavior="margin" enabled>
                 <Text style={styles.loginHeaderText}>Log In</Text>
-                <TextInput style={styles.inputBox} label='Phone Number' mode='outlined' value={this.state.phone} onChangeText={phone => this.setState({ phone })} />
-                <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.password} onChangeText={password => this.setState({ password })} />
+
+                <View style={styles.inputBoxContainer}>
+                    <TextInput
+                        style={styles.inputBox}
+                        label='Phone Number'
+                        mode='outlined'
+                        value={this.state.phone}
+                        onChangeText={phone => this.setState({ phone })}
+                    />
+
+                    <HelperText type="error" visible={isNaN(this.state.phone)} >
+                        Only number can be applied with Phone Number!
+                    </HelperText>
+
+                    <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.password} onChangeText={password => this.setState({ password })} />
+
+                    <HelperText type="error" visible={this.state.password && (this.state.password.length < 6)} >
+                        Passwords must be at least 6 characters in length!
+                    </HelperText>
+                </View>
+
                 <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}
                 <Button mode='contained' contentStyle={styles.btnProp} style={styles.btn} onPress={this.onLogin}>Login</Button>
@@ -74,9 +93,13 @@ const styles = StyleSheet.create({
     },
 
     inputBox: {
-        marginTop: 15,
-        marginBottom: 15,
+        marginTop: 5,
+        marginBottom: 5,
         borderRadius: 20,
+    },
+    inputBoxContainer: {
+        marginTop: 10,
+        marginBottom: 2,
     },
     btn: {
         marginTop: 15,
