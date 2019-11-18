@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Platform } from 'react-native';
+import { View, StyleSheet, Platform, AsyncStorage } from 'react-native';
 import { Text, Avatar, Headline, Chip } from 'react-native-paper';
 import Colors from '../../constants/Colors';
 import Icon from '../common/Icon';
 
 export default class SettingScreenHeader extends Component {
+    state = {
+        userInfo: {
+            name: '',
+            phone: ''
+        }
+    }
+
+    componentWillMount() {
+        AsyncStorage.getItem('user')
+            .then(res => this.setState({ userInfo: JSON.parse(res) }))
+    }
+
+
     render() {
         return (
             <View style={styles.headerContainer} elevation={8}>
@@ -18,9 +31,9 @@ export default class SettingScreenHeader extends Component {
 
                 {/* Header Text */}
                 <View style={styles.headerText}>
-                    <Headline style={styles.headline}>{"Wahiduzzaman Hridoy"}</Headline>
+                    <Headline style={styles.headline}>{this.state.userInfo.name || ''}</Headline>
                     <View style={styles.chipContainer}>
-                        <Text style={styles.phnNumber}>{"01727665348"}</Text>
+                        <Text style={styles.phnNumber}>{this.state.userInfo.phone || ''}</Text>
                         <Chip textStyle={{ color: '#fff' }} style={styles.chipStyle}><Icon name="star" fontName="fontAwesome" color="#fff" size={16} style={styles.chipIcon} /> {"Silver User"}</Chip>
                     </View>
                 </View>

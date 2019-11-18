@@ -35,7 +35,7 @@ class LoginScreen extends React.Component {
         return (
             <KeyboardAvoidingView style={styles.container} behavior="margin" enabled>
                 <Text style={styles.loginHeaderText}>Log In</Text>
-                <TextInput style={styles.inputBox} label='Email' placeholder='Email or Username' mode='outlined' value={this.state.phone} onChangeText={phone => this.setState({ phone })} />
+                <TextInput style={styles.inputBox} label='Phone Number' mode='outlined' value={this.state.phone} onChangeText={phone => this.setState({ phone })} />
                 <TextInput style={styles.inputBox} secureTextEntry={true} label='Password' type='password' mode='outlined' value={this.state.password} onChangeText={password => this.setState({ password })} />
                 <Text style={styles.linkText}>Forgot Password?</Text>
                 {console.log(this.props.navigation.navigate)}

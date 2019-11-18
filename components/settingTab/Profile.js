@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, AsyncStorage } from 'react-native';
 import { TextInput, Avatar, Button, TouchableRipple } from 'react-native-paper';
 
 let formEditable;
 export default class Profile extends Component {
     state = {
         userProfileInfo: {
-            name: 'Wahiduzzaman Hridoy',
-            email: 'hridoy@gmail.com',
-            phone: '01727665348',
-            gender: 'Male',
+            name: '',
+            email: '',
+            phone: '',
+            gender: '',
         },
 
         formEditable: false,
+    }
+
+    componentWillMount() {
+        AsyncStorage.getItem('user')
+            .then(res => this.setState({ userProfileInfo: JSON.parse(res) }))
     }
 
     onEdit = () => {
@@ -26,7 +31,7 @@ export default class Profile extends Component {
     }
 
     render() {
-
+        console.log(this.state.userProfileInfo);
         formEditable = this.state.formEditable;
         return (
 
