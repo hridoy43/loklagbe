@@ -9,10 +9,10 @@ import RemainingTimePage from '../components/serviceTab/RemainingTimePage';
 export default function ServiceScreen() {
   return (
 
-    <View>
+    <View style={styles.container}>
       <HomeScreenHeader />
       <Divider style={{ height: 10 }} />
-      <ScrollView >
+      <ScrollView style={styles.container}>
         {/**
          * Go ahead and delete ExpoLinksView and replace it with your content;
          * we just wanted to provide you with some helpful links.
@@ -37,7 +37,7 @@ ServiceScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    flex: 1,
     backgroundColor: '#fff',
   },
 });

@@ -14,7 +14,7 @@ export default class RemainingTimePage extends Component {
         let { videoBanner } = this.state;
         if (videoBanner) {
             videoBanner = ''
-        } else videoBanner = require('../../assets/images/videoPlayBanner.jpg');
+        } else videoBanner = '../../assets/images/videoPlayBanner.jpg'
 
         this.setState({ videoBanner })
     }
@@ -32,7 +32,7 @@ export default class RemainingTimePage extends Component {
                     <View><Text style={styles.timeNum} >35</Text><Text style={styles.timeString} >Seconds</Text></View>
                 </View>
                 {this.state.videoBanner ?
-                    <Image source={this.state.videoBanner} style={styles.thumbnail} /> :
+                    <Image source={require(this.state.videoBanner)} style={styles.thumbnail} /> :
                     <Image source={{ uri: 'https://images.unsplash.com/photo-1562887106-2588234e7b77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80' }} style={styles.thumbnail} />
                 }
                 <View style={styles.bottomButtonContainer}>
